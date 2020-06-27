@@ -1,0 +1,49 @@
+﻿@model MyIntroduce.Web.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>@Model.WebTitle</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <!--[if lte IE 8]><script src="index/css/ie/html5shiv.js"></script><![endif]-->
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/init.js"></script>
+    <link rel="stylesheet" href="~/css/skel.css" />
+    <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/css/style-wide.css" />
+    <link rel="stylesheet" href="~/css/style-noscript.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="index/css/ie/v9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="index/css/ie/v8.css" /><![endif]-->
+</head>
+
+<body class="loading">
+    <div id="wrapper">
+        <div id="bg"></div>
+        <div id="overlay"></div>
+        <div id="main">
+            <!-- Header -->
+            <header id="header">
+                <h1>@Model.Name</h1>
+                <p>@Model.Motto</p>
+                <nav>
+                    <ul>
+                        <li><a href="/@Model.Url/About" class="fa fa-user"><span>AboutMe</span></a></li>
+                        <li><a href="@Model.CnblogsUrl" target="_blank" class="fa fa-list"><span>Blog</span></a></li>
+                        <li><a href="@Model.GithubUrl" target="_blank" class="fa fa-github"><span>Github</span></a></li>
+                        <li><a href="mailto:@Model.Email" class="fa fa-envelope-o"><span>Email</span></a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <span class="copyright">&copy; Untitled. Design: <a href="http://www.wzhaoyang.top">zhaoyang</a>.</span> | 豫ICP备18021286号-1
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

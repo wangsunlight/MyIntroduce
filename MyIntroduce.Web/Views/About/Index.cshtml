@@ -1,0 +1,126 @@
+﻿@model MyIntroduce.Web.Models.User
+@{
+    Layout = null;
+}
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>@Model.WebTitle</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="~/assets/css/main.css" />
+    <!--引入-->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/menu.css">
+    <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+</head>
+
+<body>
+    <section id="header" class="dark">
+        <header>
+            <h1>个人简介</h1>
+            @foreach (var item in Model.Introduces)
+            {
+                <p>@Html.Raw(item.Content)</p>
+            }
+        </header>
+    </section>
+    <!-- First -->
+    <section id="work" class="main">
+        <header>
+            <div class="container">
+                <h2>专业技能</h2>
+                @foreach (var item in Model.Skills)
+                {
+                    <p>@Html.Raw(item.Content)</p>
+                }
+            </div>
+        </header>
+        <div class="content dark style1 featured">
+            <div class="container">
+                <h2>项目经验</h2>
+                @foreach (var item in ViewBag.Project)
+                {
+                    <h3>@Html.Raw(item.Title)</h3>
+                    <p>@Html.Raw(item.Content)</p>
+
+                    <p class="content-t">
+                        @foreach (var details in item.ProjectDetails)
+                        {
+                           <p> @Html.Raw(details.Content)</p>
+                        }
+                    </p>
+                }
+            </div>
+        </div>
+    </section>
+    <section id="summary">
+        <div class="container">
+            <h2>个人总结</h2>
+            @foreach (var item in Model.Summarys)
+            {
+                <p>@Html.Raw(item.Content)</p>
+            }
+        </div>
+    </section>
+    <!-- Footer -->
+    <section id="footer">
+        <div class="container">
+            <div class="f-left">
+                <img src="images/me.jpg">
+            </div>
+            <div class="f-right">
+                <p>
+                    <a href="http://wpa.qq.com/msgrd?v=3&uin=@Model.QQ&site=qq&menu=yes" target="_blank" class="icon fa fa-qq"><span>QQ</span></a>
+                    <a href="#" target="_blank" class="icon fa fa-wechat"><span>@Model.Wchar</span></a>
+                    <a href="@Model.CnblogsUrl" target="_blank" class="icon fa fa-book"><span>Blog</span></a>
+                    <a href="@Model.GithubUrl" target="_blank" class="icon fa fa-github"><span>Github</span></a>
+                </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <ul class="menu">
+                <li>&copy; Untitled. All rights reserved.</li>
+                <li>Design: <a href="http://www.wzhaoyang.top">zhaoyang</a></li>
+                <li>豫ICP备18021286号-1</li>
+            </ul>
+        </div>
+    </section>
+    <div class="htmleaf-container">
+        <div id='ss_menu'>
+            <div>
+                <a href="#footer" class="fa" title="联系我">联系</a>
+            </div>
+            <div>
+                <a href="#summary" class="fa" title="总结">总结</a>
+            </div>
+            <div>
+                <a href="#work" class="fa" title="技能">技能</a>
+            </div>
+            <div>
+                <a href="#header" class="fa" title="关于我">关于</a>
+            </div>
+            <div>
+                <a href="/" class="fa" title="首页">首页</a>
+            </div>
+            <div class='menu'>
+                <div class='share' id='ss_toggle' data-rot='180'>
+                    <div class='circle'></div>
+                    <div class='bar'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="http://cdn.bootcss.com/jquery/2.1.4/jquery.js"></script>
+    <script src="~/assets/js/jquery.scrolly.min.js"></script>
+    <script src="~/assets/js/skel.min.js"></script>
+    <script src="~/assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="~/assets/js/main.js"></script>
+</body>
+
+</html>
